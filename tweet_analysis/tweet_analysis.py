@@ -4,7 +4,10 @@
 # 3.例えば　仕事→楽しい、辛い　など　→特定のキーワードに対してその人がどんな印象を抱いているかわかる
 # ビジュアルはD3で作れたらいいなー
 #coding:utf-8
+# mecabは使わない方針→辞書使わないしね〜
 import pymysql
+from janome.tokenizer import Tokenizer
+import re
 
 #接続情報
 dbh = pymysql.connect(
@@ -18,7 +21,6 @@ dbh = pymysql.connect(
 
 #カーソル
 stmt = dbh.cursor()
-
 #SQL
 sql = "select * from artists"
 
@@ -31,7 +33,6 @@ rows = stmt.fetchall()
 #ループ
 for row in rows:
     print(row)
-
 #掃除
 stmt.close();
 dbh.close();
