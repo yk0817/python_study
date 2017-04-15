@@ -8,6 +8,7 @@
 import pymysql
 from janome.tokenizer import Tokenizer
 import re
+import sys
 
 #接続情報
 dbh = pymysql.connect(
@@ -33,7 +34,15 @@ rows = stmt.fetchall()
 
 #ループ
 for row in rows:
-    print(row)
+    print(row["text"])
+
+
+tokyo_politic_file = 'tokyo.wakati'
+with open(tokyo_politic_file,'w',encoding='utf-8')  as fp:
+    fp.write("\n"join(results))
+
+# Word2Vecモデル
+data = word2vec.LineSentence(tokyo_politic_file)
 
 #掃除
 stmt.close();
