@@ -25,7 +25,7 @@ dbh = pymysql.connect(
 stmt = dbh.cursor()
 
 
-sql = "SELECT * FROM tweets where query = 'from:inosenaoki'"
+sql = "SELECT * FROM tweets where query = 'from:inosenaoki' limit 10"
 
 #実行
 stmt.execute(sql)
@@ -53,7 +53,7 @@ for row in rows:
             r.append(w)
     rl = (" ".join(r)).strip()
     results.append(rl)
-    print(rl)
+    # print(rl)
             
             
 
@@ -64,7 +64,7 @@ with open(tokyo_politic_file,'w',encoding='utf-8')  as fp:
 
 # Word2Vecモデル
 data = word2vec.LineSentence(tokyo_politic_file)
-model = word2vec.Word2Vec(data,size=200,window=10,h2=1,min_count=2,sg=1)
+model = word2vec.Word2Vec(data,size=200,window=10,hs=1,min_count=2,sg=1)
 model.save('tokyo_model')
 
 #掃除
