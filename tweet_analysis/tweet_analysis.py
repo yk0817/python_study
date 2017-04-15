@@ -8,6 +8,7 @@
 import pymysql
 from janome.tokenizer import Tokenizer
 import re
+from gensim.models import word2vec
 import sys
 
 #接続情報
@@ -31,15 +32,35 @@ stmt.execute(sql)
 
 #取得
 rows = stmt.fetchall()
+# 形態素解析
+t = Tokenizer()
+results = []
+r = []
+#Tokenizer出力例
+# 英国	名詞,固有名詞,地域,国,*,*,英国,エイコク,エイコク
 
 #ループ
 for row in rows:
-    print(row["text"])
+    tokens = t.tokenize(row["text"])
+    for tok in tokens:
+        if tok.base_form == "*":
+            w = tok.surface
+        else:
+            w = tok.base_form
+        ps = tok.part_of_speech #瀕死情報
+        hinsi = ps.split(',')[0]
+        if hinsi in ['名詞','形容詞']:
+            r.append(w)
+    rl = (" ".join(r)).strip()
+    results.append(rl)
+    print(rl)
+            
+            
 
 
 tokyo_politic_file = 'tokyo.wakati'
 with open(tokyo_politic_file,'w',encoding='utf-8')  as fp:
-    fp.write("\n"join(results))
+    fp.write("\n".join(results))
 
 # Word2Vecモデル
 data = word2vec.LineSentence(tokyo_politic_file)
