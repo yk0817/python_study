@@ -14,15 +14,16 @@ dbh = pymysql.connect(
          host='localhost',
          user='root',
          password='',
-         db='call_music',
+         db='machine_learning',
          charset='utf8',
          cursorclass=pymysql.cursors.DictCursor
     )
 
 #カーソル
 stmt = dbh.cursor()
-#SQL
-sql = "select * from artists"
+
+
+sql = "SELECT * FROM tweets where query = 'from:inosenaoki'"
 
 #実行
 stmt.execute(sql)
@@ -33,6 +34,7 @@ rows = stmt.fetchall()
 #ループ
 for row in rows:
     print(row)
+
 #掃除
 stmt.close();
 dbh.close();
