@@ -25,7 +25,7 @@ dbh = pymysql.connect(
 stmt = dbh.cursor()
 
 
-sql = "SELECT * FROM tweets where query = 'from:inosenaoki' limit 10"
+sql = "SELECT * FROM tweets where query = 'from:inosenaoki'"
 
 #実行
 stmt.execute(sql)
@@ -38,29 +38,26 @@ results = []
 r = []
 #Tokenizer出力例
 # 英国	名詞,固有名詞,地域,国,*,*,英国,エイコク,エイコク
+tokyo_politic_file = 'tokyo.wakati'
 
 #ループ
 for row in rows:
     tokens = t.tokenize(row["text"])
-    for tok in tokens:
-        if tok.base_form == "*":
-            w = tok.surface
-        else:
-            w = tok.base_form
-        ps = tok.part_of_speech #瀕死情報
-        hinsi = ps.split(',')[0]
-        if hinsi in ['名詞','形容詞']:
-            r.append(w)
-    rl = (" ".join(r)).strip()
-    results.append(rl)
-    # print(rl)
-            
-            
-
-
-tokyo_politic_file = 'tokyo.wakati'
-with open(tokyo_politic_file,'w',encoding='utf-8')  as fp:
-    fp.write("\n".join(results))
+    with open(tokyo_politic_file,'a',encoding='utf-8')  as fp:
+        for tok in tokens:
+            if tok.base_form == "*":
+                w = tok.surface
+            else:
+                w = tok.base_form
+            ps = tok.part_of_speech #瀕死情報
+            hinsi = ps.split(',')[0]
+            if hinsi in ['名詞','形容詞']:
+                r.append(w)
+        rl = (" ".join(r)).strip()
+        fp.write(rl)
+        fp.write("\n")
+        r = []
+        rl = ""
 
 # Word2Vecモデル
 data = word2vec.LineSentence(tokyo_politic_file)

@@ -1,5 +1,5 @@
 *.txt
-/tweet_anaysis/tokyo_model
-/tweet_anaysis/tokyo.wakati
+/tweet_analysis/tokyo_model
+/tweet_analysis/tokyo.wakati
 /src/ch6/kokoro.model
 /src/ch6/kokoro.wakati
