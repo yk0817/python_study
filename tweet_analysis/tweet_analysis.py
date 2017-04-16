@@ -21,21 +21,31 @@ dbh = pymysql.connect(
          cursorclass=pymysql.cursors.DictCursor
     )
 
+# 形態素解析
+t = Tokenizer()
+results = []
+r = []
 #カーソル
 stmt = dbh.cursor()
 
 
-sql = "SELECT * FROM tweets where query = 'from:inosenaoki'"
+
+tokyo_politic_array = ['kayoko49430','inosenaoki','ecoyuri','MasuzoeYoichi','i_shintaro','katsuhikoasano','miwako_azegami','kouji_ueki','uedareiko','ozaki_ayako','otokita','kamibayashi210','kawamatsushin16','koiso_akira','komatsu_daisuke','komachisa','KoyamaKunihiko','yasuhirosaitou','sakiyamac','yumisatoyoshi','shiomura','simizuhideko','tamioshiraishi','helibon1','tanakaasako','tokutomemtnb','nagahashikeiich','Nakamura_Mitaka','fnakayaka','nobudon7','nishizawakeita','nogamiyukie','nomuraarinobu','horikoudou1964','maeda_kazushige','tomosanma','miyase_eiji','morozumi_m','yanagase_ootaku','akira_yamauchi8','yoshida_nobuo','yonekura_haruna','tomoharu_arai','ishikawaryo1','tizumihcc','ito_shinagawa','ootsu_hiroko','akiraoomatsu','ohyamajim','kawai_shigeo','motonari_ldp','kurinori_tokyo','201Kuriyama','kounoyurie','kobaken_komei','SakuraiHiroyuki','suzuki_jm','tryosei','gambaretanaka','ta_tanimura','nakajimayoshio','junko_nogami116','mrbousai','FunasakaTikao','YoshiwaraO','morimasakosangi','miharajunco']
+
+
+sql = "SELECT * FROM tweets where query = 'from:{tokyo_politic_array[0]}'".format()
+print(sql)
+sys.exit()
 
 #実行
 stmt.execute(sql)
 
 #取得
 rows = stmt.fetchall()
+
+
 # 形態素解析
-t = Tokenizer()
-results = []
-r = []
+
 #Tokenizer出力例
 # 英国	名詞,固有名詞,地域,国,*,*,英国,エイコク,エイコク
 tokyo_politic_file = 'tokyo.wakati'
@@ -59,9 +69,10 @@ for row in rows:
         r = []
         rl = ""
 
+
 # Word2Vecモデル
 data = word2vec.LineSentence(tokyo_politic_file)
-model = word2vec.Word2Vec(data,size=200,window=10,hs=1,min_count=2,sg=1)
+model = word2vec.Word2Vec(data,size=500,window=10,hs=1,min_count=10,sg=1)
 model.save('tokyo_model')
 
 #掃除
