@@ -1,0 +1,555 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT" />
+<title>日時を決める｜レンタカー予約 オリックスレンタカー（旧ジャパレンエックスレンタカー）</title>
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+
+<!-- page-info -->
+<meta name="copyright" content="ORIX Auto Corporation" />
+<link rel="start" href="http://car.orix.co.jp/" title="Home" />
+<link rel="shortcut icon" type="image/vnd.microsoft.ico" href="/favicon.ico" />
+
+
+
+
+<!-- css-javascript -->
+<link rel="stylesheet" type="text/css" href="../share/css/init.css" media="screen,tv,print" />
+<link rel="stylesheet" type="text/css" href="../share/css/base.css" media="screen,tv,print" />
+<link rel="stylesheet" type="text/css" href="../share/css/print.css" media="print" />
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../share/script/jquery.js"></script>
+<script type="text/javascript" src="../share/script/plugins.js"></script>
+<script type="text/javascript" src="../share/script/function.js"></script>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="../js/thickbox.css" media="screen,tv,print" />
+<script type="text/javascript" src="../js/thickbox.js"></script>
+
+
+
+
+
+
+
+
+
+
+<!--[if IE 6]>
+<script type="text/javascript" src="../share/script/function_IE.js"></script>
+<![endif]-->
+
+
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-30486255-1']);
+_gaq.push(['_trackPageview']);
+(function(){
+var ga = document.createElement('script');
+ga.type ='text/javascript';
+ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' :'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+var yahoo_retargeting_id = 'ITU4YS3HWW';
+var yahoo_retargeting_label = '';
+/* ]]> */
+</script>
+<script type="text/javascript" language="javascript" src="//b92.yahoo.co.jp/js/s_retargeting.js"></script>
+
+
+
+
+<script type="text/javascript" src="../js/script.js"></script>
+<script type="text/javascript">
+(function() {
+$script("https://www.taglog.jp/taglog2.js", "taglog");
+$script.ready("taglog", function() {
+taglog.init("https://car.orix.co.jp/");
+taglog.pageAnalyzer.start();
+taglog.clickMonitor.start();
+});
+})();
+</script>
+
+
+
+</head>
+
+<body class="clmOne" onload="dates_change(0, 0, 0);read_cookie('../');" oncontextmenu="return false">
+
+<!-- 【エラー表示】 -->
+<noscript>
+<div id="noscript_error" class="errorALL">
+<div class="errorIn">
+JavaScriptの設定を有効にしてご利用ください。無効の場合、サービスが正常にご利用できません。
+</div>
+</div>
+</noscript>
+
+<script type="text/javascript"> 
+if(! navigator.cookieEnabled){
+document.write("<div id='cookie_error' class='errorALL'><div class='errorIn'>ブラウザの設定でCookieを有効にしてください。ブラウザで Cookie を有効にしていない場合は、WEB予約ができません。変更の方法はお使いのブラウザの「ヘルプ」などでご確認ください。</div></div>");
+}
+</script> 
+
+<!-- //【エラー表示】 -->
+
+<div id="top" class="skipNav">
+<p>
+<a href="#contents">本文へジャンプ</a>
+</p>
+<!-- //skipNav --></div>
+<div id="page">
+<div id="globalHeader" class="header">
+<div class="contInner">
+<h1 id="siteCopy">レンタカーを予約する｜日時を決める</h1>
+<h1 id="sitelogo">
+<a href="http://car.orix.co.jp/">オリックスレンタカー</a>
+<!-- //[sitelogo] -->
+</h1><div id="headNav">
+<ul id="headNav01">
+<li id="snav01a"><a href="http://car.orix.co.jp/">トップページ</a></li>
+<li id="snav01b"><a href="http://car.orix.co.jp/userguide/faq.html">お問い合わせ・Q＆A</a></li>
+<li id="snav01c"><a href="http://car.orix.co.jp/sitemap/">サイトマップ</a></li>
+<!-- <li id="snav01d"><a href="http://car.orix.co.jp/pmc/">メルマガ登録</a></li> -->
+<!-- //[headNav01] --></ul>
+<ul id="headNav02">
+<li><span id="Cart"><img src="../share/img/snav_reserve_off.png" width="223" height="24" alt="未完了の予約情報はございません" /></span></li>
+<li><a href="https://car.orix.co.jp/mypage/"><img src="../share/img/snav_member.png" width="223" height="24" alt="メンバー情報の確認・変更" class="mOver" /></a></li>
+<!-- //[headNav02] --></ul>
+<div id="headNav03">
+<a href="http://car.orix.co.jp/pmc/"><img src="../share/img/bnr_memberClub.png" width="164" height="91" alt="ネット予約なら初回から10%オフ！" class="mOver pngFix" /></a>
+<!-- //[headNav03] --></div>
+<!-- //[headNav] --></div>
+<!-- //[contInner] --></div>
+<!-- //[globalHeader] --></div>
+<div id="globalNav" class="nav">
+<ul class="contInner cFix">
+<li class="gnav01"><a href="http://car.orix.co.jp/" title="予約する">予約する</a></li>
+<li class="gnav02"><a href="http://car.orix.co.jp/shop/" title="店舗を探す">店舗を探す</a></li>
+<li class="gnav03"><a href="http://car.orix.co.jp/campaign/" title="キャンペーン">キャンペーン</a></li>
+<li class="gnav04"><a href="http://car.orix.co.jp/price/" title="車種と料金">車種と料金</a></li>
+<li class="gnav05"><a href="http://car.orix.co.jp/driveguide/" title="ドライブガイド">ドライブガイド</a></li>
+<li class="gnav06"><a href="http://car.orix.co.jp/userguide/" title="ご利用ガイド">ご利用ガイド</a></li>
+</ul>
+<!-- //[globalNav] --></div>
+<div id="sitePath">
+<div class="contInner">
+<a href="http://car.orix.co.jp/" class="home">オリックスレンタカートップ 予約する</a>
+<span class="path">&gt;</span>
+<strong class="current">日時を決める</strong>
+<!-- //[contInner] --></div>
+<!-- //[sitePath] --></div>
+
+
+<div id="contents" class="article">
+<div class="contInner">
+<div class="header contHead">
+<h2>
+日時を決める
+</h2>
+
+
+<!-- //[contHead] --></div>
+<div class="section contBody">
+
+<div class="flowUnit"><img src="../share/img/reserv_Flow_02.png" width="960" height="90" alt="予約フロー" /></div>
+<div class="contSection">
+<div class="contSectionIn">
+<!-- 【予約内容】 -->
+
+
+<div class="reserveStatus">
+
+<div class="reserveStatusIn">
+<div class="secHead header">
+<h3 class="title leftCol"><img src="../share/img/ttl_reserveStatusNow.png" width="250" height="23" alt="現在設定されているご予約内容" /></h3>
+<div class="rightCol">
+<a href="http://car.orix.co.jp/"><img src="../share/img/btn_reserveReset.png" width="180" height="25" alt="予約をはじめからやりなおす" class="mOver" /></a>
+</div>
+</div>
+<div class="secBody">
+<div class="selectedShop">
+<div class="selects">
+<dl class="startShop">
+<dt><img src="../share/img/label_shopStart_01.png" width="140" height="20" alt="出発店舗" /></dt>
+<dd>
+
+<span class="icon">
+<img src="../share/img/ico_orix.png" width="60" height="13" alt="オリックス" />
+</span>
+<span class="name">
+羽田空港店
+</span>
+
+<span class="btn">
+<a href="../shops_map/?shops_pk=265" target="_blank">
+<img src="../share/img/btn_shopMapDisp_S.png" width="110" height="16" alt="店舗の地図を見る" class="mOver" />
+</a>
+</span>
+</dd>
+<!-- //[startShop] -->
+</dl>
+
+<dl class="returnShop">
+<dt><img src="../share/img/label_shopReturn_01.png" width="140" height="20" alt="返却店舗" /></dt>
+<dd>
+
+<span class="icon">
+<img src="../share/img/ico_orix.png" width="60" height="13" alt="オリックス" />
+</span>
+<span class="name">
+羽田空港店
+</span>
+
+<span class="btn">
+<a href="../shops_map/?shops_pk=265" target="_blank">
+<img src="../share/img/btn_shopMapDisp_S.png" width="110" height="16" alt="店舗の地図を見る" class="mOver" />
+</a>
+</span>
+
+</dd>
+<!-- //[returnShop] --></dl>
+<!-- //[leftCol] --></div>
+
+<div class="right cFix">
+<a href="../orderdates/?md=shopform&corp=0" class="rsvChangeBtn">× 店舗を変更する</a>
+</div>
+
+<!-- //[shopSelect] --></div>
+<!-- //[body] --></div>
+<!-- //[reserveStatusIn] --></div>
+<!-- //[reserveStatus] --></div>
+
+<form method="post" action="./?md=dset&start_shops_pk=265&return_shops_pk=265&corp=0">
+
+<!-- //【予約内容】 -->
+<!-- 【日時を選ぶ】 -->
+<div class="selectDate">
+
+<div class="unitHeadguide1"><img src="../share/img/ttl_selectDate_guide1.png" width="910" height="30" alt="出発日時・返却日時を選んでください" /></div>
+
+<div class="dateStart">
+<h2 class="header"><img src="../share/img/ttl_timeStart.png" width="403" height="38" alt="出発日時を選ぶ" />
+</h2>
+<div class="icon"><img src="../share/img/ico_required_01.png" width="40" height="25" alt="必須" /></div>
+<div class="body">
+
+<div class="selects nopscr">
+
+
+<span id="start_ym_select">
+<select name="start_ym" id="start_ym" class="selectBox" onchange="dates_change(1, 1, 0);">
+<option label="2017年04月" value="201704" selected="selected">2017年04月</option>
+<option label="2017年05月" value="201705">2017年05月</option>
+<option label="2017年06月" value="201706">2017年06月</option>
+<option label="2017年07月" value="201707">2017年07月</option>
+<option label="2017年08月" value="201708">2017年08月</option>
+<option label="2017年09月" value="201709">2017年09月</option>
+<option label="2017年10月" value="201710">2017年10月</option>
+
+</select>
+</span>
+
+<span id="start_date_select">
+<select name="start_date" id="start_date" class="selectBox" onchange="dates_change(1, 1, 0);">
+<option value="" selected="selected">選択</option>
+</select>
+</span>
+
+<a href="../aj_obj/?md=startdate_cal&TB_iframe=true&height=500&width=700" class="thickbox"><img src="../share/img/ico_calendar.png" width="24" height="25" alt="カレンダー入力" /></a>
+
+<span id="start_time_select">
+<select name="start_time" id="start_time" class="selectBox" onchange="dates_change(0, 1, 0);">
+<option value="" selected="selected">選択</option>
+</select>
+</span>
+
+
+<!-- //[selects] --></div>
+
+
+<dl class="howtoGuide">
+<dt><img src="../share/img/ico_howtoGuide.png" width="74" height="13" alt="使い方ガイド" /></dt>
+<dd>
+上のカレンダーアイコンクリックにてカレンダーが表示されます。カレンダー上をクリックすると上記日時に反映されます。
+</dd>
+<!-- //[howtoGuide] --></dl>
+
+
+<!-- //[body] --></div>
+<!-- //[dateStart] --></div>
+<div class="dateReturn">
+<h2 class="header"><img src="../share/img/ttl_timeReturn.png" width="172" height="38" alt="返却日時を選ぶ" />
+</h2>
+<div class="icon"><img src="../share/img/ico_required_01.png" width="40" height="25" alt="必須" /></div>
+<div class="body">
+<div class="selects nopscr">
+
+<span id="return_ym_select">
+<select name="return_ym" id="return_ym" class="selectBox" onchange="dates_change(0, 1, 0);">
+<option value="" selected="selected">選択</option>
+</select>
+</span>
+
+<span id="return_date_select">
+<select name="return_date" id="return_date" class="selectBox" onchange="dates_change(0, 1, 0);">
+<option value="" selected="selected">選択</option>
+</select>
+</span>
+
+<a href="../aj_obj/?md=returndate_cal&TB_iframe=true&height=500&width=700" class="thickbox"><img src="../share/img/ico_calendar.png" width="24" height="25" alt="カレンダー入力" /></a>
+
+<span id="return_time_select">
+<select name="return_time" id="return_time" class="selectBox" onchange="dates_change(0, 0, 0);">
+<option value="" selected="selected">選択</option>
+</select>
+</span>
+
+<!-- //[selects] --></div>
+
+
+<dl class="howtoGuide">
+<dt><img src="../share/img/ico_howtoGuide.png" width="74" height="13" alt="使い方ガイド" /></dt>
+<dd>
+上のカレンダーアイコンクリックにてカレンダーが表示されます。カレンダー上をクリックすると上記日時に反映されます。
+</dd>
+<!-- //[howtoGuide] --></dl>
+
+
+<!-- //[body] --></div>
+<!-- //[dateReturn] --></div>
+
+<div class="unitHeadguide2">
+<img src="../share/img/ttl_selectDate_guide2.png" width="910" height="30" alt="日時を選んだら下記ボタンをクリック" />
+<div class="notes">
+<dl>
+<dt>
+<a href="../userguide/payment_min.html" target="_blank" class="icoblankLink1R">お支払いについて</a>
+</dt>
+<dt>
+<a href="../userguide/pet_min.html" target="_blank" class="icoblankLink1R">ペット同乗について</a>
+</dt>
+</dl>
+</div>
+</div>
+
+<!-- //[selectDate] --></div>
+<!-- //【日時を選ぶ】 -->
+
+
+<!-- 【ボタン群】 -->
+<div class="btnSection">
+
+
+
+
+<div class="simpleSelect">
+<h3  class="header">
+<input name="mds_easy" value="easy" type="image" src="../share/img/btn_selectClass.png" alt="人数と荷物からクラスを選ぶ" class="inputBtn" />
+</h3>
+<p class="note">
+<img src="../share/img/txt_note_01.png" width="137" height="36" alt="クラス選びにお困りの方はこちら！！" />
+</p>
+<dl class="howtoGuide">
+<dt><img src="../share/img/ico_howtoGuide.png" width="74" height="13" alt="使い方ガイド" /></dt>
+<dd>
+乗車人数・お荷物の量で最適なレンタカーのクラスをご案内致します。商用バン・トラックをご希望の場合は下のタイプ選択ボタンをクリックしてください。
+</dd>
+<!-- //[howtoGuide] --></dl>
+<!-- //[simpleSelect] --></div>
+
+<div class="typeSelect">
+<h3 class="header"><img src="../share/img/ttl_selectType.png" width="297" height="20" alt="選択したタイプから在庫一覧へ進む" /></h3>
+<p class="note">
+<img src="../share/img/txt_note_02.png" width="137" height="54" alt="出発日時・返却日時が決まったら…クラスの在庫一覧へ" />
+</p>
+<ul class="typeList">
+<li><input name="carkinds_pk_1" value="1" type="image" src="../share/img/btn_typeCompact.png" alt="コンパクト" class="inputBtn" /></li>
+<li><input name="carkinds_pk_2" value="2" type="image" src="../share/img/btn_typeSedan.png" alt="セダン" class="inputBtn" /></li>
+<li><input name="carkinds_pk_3" value="3" type="image" src="../share/img/btn_typeEco.png" alt="エコカー・EV" class="inputBtn" /></li>
+<li><input name="carkinds_pk_4" value="4" type="image" src="../share/img/btn_typeRV.png" alt="RV・ミニバン" class="inputBtn" /></li>
+<li><input name="carkinds_pk_5" value="5" type="image" src="../share/img/btn_typeWagon.png" alt="ワゴン" class="inputBtn" /></li>
+<li><input name="carkinds_pk_6" value="6" type="image" src="../share/img/btn_typeVan.png" alt="バン・ワンボックスバン" class="inputBtn" /></li>
+<li><input name="carkinds_pk_7" value="7" type="image" src="../share/img/btn_typeTruck01.png" alt="トラック（平ボディ）" class="inputBtn" /></li>
+<li><input name="carkinds_pk_8" value="8" type="image" src="../share/img/btn_typeTruck02.png" alt="トラック（アルミバン）" class="inputBtn" /></li>
+</ul>
+<dl class="howtoGuide">
+<dt><img src="../share/img/ico_howtoGuide.png" width="74" height="13" alt="使い方ガイド" /></dt>
+<dd>
+設定された店舗・期間の在庫があるクラスを一覧表示します。
+</dd>
+<!-- //[howtoGuide] --></dl>
+<!-- //[typeSelect] --></div>
+
+
+<!-- //[btnSection] --></div>
+<!-- //【ボタン群】 -->
+
+</form>
+
+<!-- //[contSectionIn] --></div>
+<!-- //[contSection] --></div>
+
+
+
+<!-- //[contBody] --></div>
+<!-- //[contentsIn] --></div>
+<!-- //[contents] --></div>
+
+<div id="pageTop">
+<a href="#top"><img src="../share/img/btn_pageTop.png" width="38" height="150" alt="ページのトップヘ" class="mOver" /></a>
+<!-- //[pageTop] --></div>
+<div id="globalFooter" class="footer">
+<div id="footerCont01">
+<div class="contInner">
+
+<div id="footNav01" class="unit">
+<dl>
+<dt><img src="../share/img/fnav_01.png" width="132" height="20" alt="レンタカーを使う" /></dt>
+<dd>
+<ul>
+<li><a href="http://car.orix.co.jp/">レンタカーを予約する</a></li>
+<li><a href="http://car.orix.co.jp/shop">店舗を探す</a></li>
+<li><a href="http://car.orix.co.jp/price">車種・料金を調べる</a></li>
+<li><a href="http://car.orix.co.jp/campaign/">お得なレンタカー格安キャンペーン</a></li>
+<li><a href="http://car.orix.co.jp/userguide/index.html">ご利用ガイド</a></li>
+<li><a href="http://car.orix.co.jp/price/oneway.html">ワンウェイご利用料金について</a></li>
+<li><a href="http://car.orix.co.jp/userguide/insurance.html">保険補償制度について</a></li>
+<li><a href="http://car.orix.co.jp/userguide/faq.html">よくあるご質問</a></li>
+<li><a href="http://car.orix.co.jp/driveguide">ドライブガイド</a></li>
+<li><a href="https://car.orix.co.jp/mypage/">マイページ</a></li>
+<li><a href="http://car.orix.co.jp/sp/">スマートフォン向けサイト</a></li>
+</ul></dd>
+</dl>
+<!-- //[footNav01] --></div>
+
+<div id="footNav02" class="unit">
+<dl>
+<dt><img src="../share/img/fnav_02.png" width="124" height="20" alt="はじめての方へ" /></dt>
+<dd>
+<ul>
+<li><a href="http://car.orix.co.jp/userguide/index.html">ご利用ガイド</a></li>
+<li><a href="http://car.orix.co.jp/userguide/faq.html">よくあるご質問</a></li>
+<li><a href="http://car.orix.co.jp/userguide/website1.html">このサイトの使い方</a></li>
+</ul></dd>
+</dl>
+<dl>
+<dt><img src="../share/img/fnav_03.png" width="150" height="20" alt="このサイトについて" /></dt>
+<dd>
+<ul>
+<li><a href="http://www.orix.co.jp/auto/company/gaiyou.htm" target="_blank" class="icoWin">オリックス自動車株式会社 会社情報</a></li>
+<li><a href="http://car.orix.co.jp/userguide/faq.html">お問い合わせ</a></li>
+<li><a href="http://car.orix.co.jp/userguide/sitepolicy.html" target="_blank" class="icoWin">サイトポリシー</a></li>
+<li><a href="http://www.orix.co.jp/auto/privacy.htm" target="_blank" class="icoWin">プライバシーポリシー</a></li>
+<li><a href="http://car.orix.co.jp/sitemap/">サイトマップ</a></li>
+<li><a href="http://car.orix.co.jp/business/index.html">法人のお客様へ</a></li>
+<li><a href="http://car.orix.co.jp/userguide/transactions.html">特定商取引法に基づく表示について</a></li>
+</ul></dd>
+</dl>
+<!-- //[footNav02] --></div>
+
+<div id="footNav03" class="unit">
+<dl>
+<dt><img src="../share/img/fnav_04.png" width="170" height="20" alt="その他関連コンテンツ" /></dt>
+<dd>
+<ul>
+<li><a href="http://car.orix.co.jp/userguide/franchise.html">フランチャイジー会社一覧</a></li>
+<li><a href="http://www.orix.co.jp/grp/company/group/" target="_blank" class="icoWin">オリックスグループ一覧</a></li>
+<li><a href="http://truck.orix.co.jp/truck/index.html" target="_blank" class="icoWin">オリックストラックレンタル</a></li>
+<li><a href="http://car.orix.co.jp/driveguide/e_chari.html">レンタサイクル「eチャリ」</a></li>
+</ul></dd>
+</dl>
+<!-- //[footNav03] --></div>
+
+<!-- //[contInner] --></div>
+<!-- //[footerCont01] --></div>
+<div id="footerCont02">
+<div class="contInner">
+<dl class="left">
+<dt><img src="../share/img/logoOrixAutoCorp_J.png" width="240" height="21" alt="オリックス自動車株式会社" /></dt>
+<dd>
+<p>
+〒105-8589 東京都港区芝3丁目22番8号
+</p>
+<p>
+<a href="http://car.orix.co.jp/" target="_blank" class="icoLink"><b>オリックスレンタカー</b>URL：http://car.orix.co.jp/</a>
+</p>
+</dd>
+<!-- //[left] --></dl>
+<div class="right">
+<p>
+<img src="../share/img/logoOrixAutoCorp_E.png" width="274" height="29" alt="Orix Auto Corporation" />
+</p>
+<p class="copyRight"><small><img src="../share/img/txt_copyRight.png" width="274" height="20" alt="Copyright c ORIX Auto Corporation All Rights Reserved." /></small>
+</p>
+<!-- //[right] --></div>
+<!-- //[contInner] --></div>
+<!-- //[footerCont02] --></div>
+<!-- //[globalFooter] --></div>
+
+
+<!-- //[page] --></div>
+
+
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1015070668;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1015070668/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+
+
+
+
+<!-- Start YTM tag -->
+<script type="text/javascript">
+
+  (function () {
+    var tagjs = document.createElement("script");
+    var s = document.getElementsByTagName("script")[0];
+    tagjs.async = true;
+    tagjs.src = "//s.yjtag.jp/tag.js#site=sdLVsqL";
+    s.parentNode.insertBefore(tagjs, s);
+  }());
+
+</script>
+<noscript>
+  <iframe src="//b.yjtag.jp/iframe?c=sdLVsqL" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+</noscript>
+<!-- End YTM tag -->
+
+
+</body>
+
+</html>
