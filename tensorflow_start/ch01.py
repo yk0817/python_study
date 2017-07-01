@@ -116,6 +116,10 @@ with tf.variable_scope('scope1'):
     var1_2 = tf.get_variable('var1',shape=[],initializer=tf.constant_initializer(1.0))
 
 
+# 
+
+# ## リスト 1.11 一度宣言した変数を取得
+
 # In[ ]:
 
 
