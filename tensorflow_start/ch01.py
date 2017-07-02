@@ -120,7 +120,7 @@ with tf.variable_scope('scope1'):
 
 # ## リスト 1.12 プレースホルダーの宣言
 
-# In[13]:
+# In[14]:
 
 var1 = tf.Variable(0)
 holder2 = tf.placeholder(tf.int32)
@@ -128,6 +128,80 @@ holder2 = tf.placeholder(tf.int32)
 add_op = tf.add(var1,holder2)
 update_var1 = tf.assign(var1, add_op)
 mul_op = tf.multiply(add_op,update_var1)
+
+
+# ## リスト 1.13 プレースホルダーに値を与える
+
+# In[15]:
+
+with tf.Session()  as sess:
+    sess.run(tf.global_variables_initializer())
+    result = sess.run(mul_op,
+                     feed_dict = {
+            holder2 : 5
+        })
+    print(result)
+
+
+# ## リスト 1.14 tf.addと演算子＋は同じ意味
+
+# In[19]:
+
+var1 = tf.constant(1)
+var2 = tf.constant(2)
+result1 = tf.add(var1, var2)
+result2 = var1 + var2
+print(result1)
+print(result2)
+
+
+with tf.Session() as sess:
+    print(sess.run(result1))
+    print(sess.run(result2))
+
+
+# ## リスト 1.15 Numpyのブロードキャスティング
+
+# In[21]:
+
+import numpy as np
+
+array1 = np.array([1,2,3,4])
+value1 = 5
+
+result = array1 + value1
+print(result)
+
+
+# ## リスト 1.16 Tensorflowのブロードキャスティング
+
+# In[22]:
+
+import tensorflow as tf
+
+array1 = tf.constant([1,2,3,4])
+value1 = tf.constant(5)
+result = array1 + value1
+
+with tf.Session() as sess:
+    print(sess.run(result))
+
+
+# ## リスト 1.17 TensorBoardにデータを書き出す
+
+# In[23]:
+
+const1 = tf.constant(2)
+const2 = tf.constant(3)
+add_op = tf.add(const1,const2)
+mul_op = tf.multiply(add_op, const2)
+
+with tf.Session()  as sess:
+    mul_result, add_result = sess.run([mul_op, add_op])
+    print(mul_result)
+    print(add_result)
+
+tf.summary.FileWriter('./',sess.graph)
 
 
 # In[ ]:
