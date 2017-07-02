@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[4]:
+# In[1]:
 
 from __future__ import absolute_import
 from __future__ import division
@@ -20,7 +20,7 @@ with tf.Session() as sess:
 
 # ## リスト1.3 add_opをprint文で表示
 
-# In[5]:
+# In[2]:
 
 const1 = tf.constant(2)
 const2 = tf.constant(3)
@@ -30,7 +30,7 @@ print(add_op)
 
 # ## リスト1.4 mul_opとadd_opを実行
 
-# In[6]:
+# In[3]:
 
 const1 = tf.constant(2)
 const2 = tf.constant(3)
@@ -45,7 +45,7 @@ with tf.Session() as sess:
 
 # ## リスト1.5 変数の宣言と代入
 
-# In[7]:
+# In[4]:
 
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
@@ -55,7 +55,7 @@ with tf.Session() as sess:
 
 # ## リスト 1.6　変数を初期化し、オペレーションを実行
 
-# In[8]:
+# In[5]:
 
 var1 = tf.Variable(0)
 const2 = tf.constant(3)
@@ -68,7 +68,7 @@ mul_op = tf.multiply(add_op, update_var1)
 
 # ## リスト 1.7 異なるセッションの変数
 
-# In[9]:
+# In[6]:
 
 # 1つ目のセッション
 with  tf.Session() as sess:
@@ -84,7 +84,7 @@ with  tf.Session() as sess:
 
 # ## リスト 1.8 スコープの宣言
 
-# In[10]:
+# In[7]:
 
 with  tf.variable_scope('scope1'):
     var1 = tf.Variable(name="var1",initial_value=1.0)
@@ -98,7 +98,7 @@ print(var2.name)
 
 # ## リスト 1.9 tf.Variableによる変数の宣言
 
-# In[11]:
+# In[8]:
 
 with tf.variable_scope('scope1'):
     var1_1 = tf.Variable(name="var1", initial_value=1.0)
@@ -109,7 +109,7 @@ with tf.variable_scope('scope1'):
 
 # ## リスト 1.10 tf.get_variableによる変数の宣言
 
-# In[12]:
+# In[9]:
 
 with tf.variable_scope('scope1'):
     var1_1 = tf.get_variable('var1', shape=[],initializer=tf.constant_initializer(1.0))
@@ -118,7 +118,17 @@ with tf.variable_scope('scope1'):
 
 # 
 
-# ## リスト 1.11 一度宣言した変数を取得
+# ## リスト 1.12 プレースホルダーの宣言
+
+# In[13]:
+
+var1 = tf.Variable(0)
+holder2 = tf.placeholder(tf.int32)
+
+add_op = tf.add(var1,holder2)
+update_var1 = tf.assign(var1, add_op)
+mul_op = tf.multiply(add_op,update_var1)
+
 
 # In[ ]:
 
