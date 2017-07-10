@@ -2,6 +2,7 @@ import signal
 import sys
 import logging
 import logging.handlers
+import random
 
 # 1億行のrowを持つtsvファイルを出力するプログラムを作成
 
@@ -30,8 +31,19 @@ column_args = {
 def make_column(column_args):
     return ("\t").join(column_args.values())
 
-# def write_rows():
+def make_values():
+    return ("\t").join([
+        str(random.randint(-2**31,2**31-1)),
+        str(random.randint(-2**15,2**15-1)),
+        str(random.randint(-2**31,2**31-1)),
+        str(random.uniform(0.1,2.7)),
+        str(random.randint(0, 1)),
+        "test",
+        ,
 
+                        ])
 
 if __name__ == '__main__':
-    print(make_column(column_args))
+    # print(make_column(column_args))
+    print(make_values())
+    # while True:
