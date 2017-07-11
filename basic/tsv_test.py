@@ -10,8 +10,9 @@ my_logger.addHandler(handler)
 
 UNIX_START = 1429000000
 UNIX_NOW_UTC = int(datetime.now().strftime('%s'))
-
 # 一行カラム作成 tsvファイル
+# print(datetime.fromtimestamp(random.randint(UNIX_START,UNIX_NOW_UTC)).strftime('%Y-%m-%d'))
+# print(datetime.fromtimestamp(random.randint(UNIX_START,UNIX_NOW_UTC)).strftime('%Y-%m-%d %H:%M:%S'))
 
 column_args = {
     'column_1':'int',
@@ -28,16 +29,18 @@ def make_column(column_args):
     return ("\t").join(column_args.values())
 
 def make_values():
+    y_m_d_H_M_S = datetime.fromtimestamp(random.randint(UNIX_START,UNIX_NOW_UTC)).strftime('%Y-%m-%d %H:%M:%S')
+    y_m_d = datetime.fromtimestamp(random.randint(UNIX_START,UNIX_NOW_UTC)).strftime('%Y-%m-%d')
     return ("\t").join([
-        random.randint(-2**31,2**31-1),
-        random.randint(-2**15,2**15-1),
-        random.randint(-2**31,2**31-1),
-        random.uniform(0.1,2.7),
-        random.randint(0, 1),
+        str(random.randint(-2**31,2**31-1)),
+        str(random.randint(-2**15,2**15-1)),
+        str(random.randint(-2**31,2**31-1)),
+        str(random.uniform(0.1,2.7)),
+        str(random.randint(0, 1)),
         "tttt",
         "test",
-        datetime.fromtimestamp(random.randint(UNIX_START,UNIX_NOW_UTC)).strftime('%Y-%m-%d %H:%M:%S'),
-        datetime.fromtimestamp(random.randint(UNIX_START,UNIX_NOW_UTC)).strftime('%Y-%m-%d'),
+        str(y_m_d_H_M_S),
+        str(y_m_d)
         ]) + "\n"
 
 if __name__ == '__main__':
