@@ -1,9 +1,4 @@
-import signal
-import sys
-import logging
-import logging.handlers
-import random
-
+from common import *
 # 1億行のrowを持つtsvファイルを出力するプログラムを作成
 
 LOG = 'logging.out'
@@ -13,7 +8,8 @@ handler = logging.handlers.RotatingFileHandler(
     LOG, maxBytes=10000, backupCount=5,)
 my_logger.addHandler(handler)
 
-
+UNIX_START = 1429000000
+UNIX_NOW_UTC = int(datetime.now().strftime('%s'))
 
 # 一行カラム作成 tsvファイル
 
@@ -33,15 +29,16 @@ def make_column(column_args):
 
 def make_values():
     return ("\t").join([
-        str(random.randint(-2**31,2**31-1)),
-        str(random.randint(-2**15,2**15-1)),
-        str(random.randint(-2**31,2**31-1)),
-        str(random.uniform(0.1,2.7)),
-        str(random.randint(0, 1)),
+        random.randint(-2**31,2**31-1),
+        random.randint(-2**15,2**15-1),
+        random.randint(-2**31,2**31-1),
+        random.uniform(0.1,2.7),
+        random.randint(0, 1),
+        "tttt",
         "test",
-        ,
-
-                        ])
+        datetime.fromtimestamp(random.randint(UNIX_START,UNIX_NOW_UTC)).strftime('%Y-%m-%d %H:%M:%S'),
+        datetime.fromtimestamp(random.randint(UNIX_START,UNIX_NOW_UTC)).strftime('%Y-%m-%d'),
+        ]) + "\n"
 
 if __name__ == '__main__':
     # print(make_column(column_args))
