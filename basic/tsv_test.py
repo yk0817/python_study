@@ -26,11 +26,12 @@ column_args = {
     'column_9':'iso8601形式日付文字列',
     }
 def make_column(column_args):
-    return ("\t").join(column_args.values())
+    return ("\t").join(column_args.values()) + "\n"
 
 def make_values():
     y_m_d_H_M_S = datetime.fromtimestamp(random.randint(UNIX_START,UNIX_NOW_UTC)).strftime('%Y-%m-%d %H:%M:%S')
     y_m_d = datetime.fromtimestamp(random.randint(UNIX_START,UNIX_NOW_UTC)).strftime('%Y-%m-%d')
+
     return ("\t").join([
         str(random.randint(-2**31,2**31-1)),
         str(random.randint(-2**15,2**15-1)),
@@ -43,7 +44,8 @@ def make_values():
         str(y_m_d)
         ]) + "\n"
 
+def write_file(arg):
+    
+
 if __name__ == '__main__':
-    # print(make_column(column_args))
-    print(make_values())
-    # while True:
+    while True:
