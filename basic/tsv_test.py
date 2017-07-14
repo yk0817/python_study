@@ -45,7 +45,10 @@ def make_values():
         ]) + "\n"
 
 def write_file(arg):
-    
+    # 一時ファイル作成
+    # 書き込む
+    # 100超えたら tsvファイル書き込み
+
 
 if __name__ == '__main__':
     while True:
