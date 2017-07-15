@@ -1,5 +1,6 @@
 import subprocess as sub
 
+
 # ret = sub.getoutput('date')
 # print(ret)
 # 
@@ -13,4 +14,3 @@ import subprocess as sub
 # print(ret4)
 
 ret5 = sub.call(['date', '-u'])
-ret5
