@@ -1,5 +1,6 @@
 import click
 
+# 引数を絶対に入力
 @click.command()
 @click.argument('name')
 
