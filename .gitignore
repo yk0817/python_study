@@ -6,3 +6,4 @@
 *.ipynb
 /tensor_start_sample
 *.out
+*.pdf
