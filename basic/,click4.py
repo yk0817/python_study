@@ -11,7 +11,7 @@ def english():
 
 @cmd.command()
 def japanese():
-    click.echo('konnichwa,sekai')
+    click.echo('こんにちわ世界')
 
 def main():
     cmd()

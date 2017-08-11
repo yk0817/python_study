@@ -29,7 +29,6 @@ class MyThread(threading.Thread):
 thread1 = MyThread('A', 5)
 thread2 = MyThread('B', 3)
 thread1.start()
-time.sleep(1)
 thread2.start()
 
 thread1.join()
