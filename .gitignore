@@ -3,7 +3,6 @@
 /tweet_analysis/tokyo.wakati
 /src/ch6/kokoro.model
 /src/ch6/kokoro.wakati
-*.ipynb
 /tensor_start_sample
 *.out
 *.pdf
