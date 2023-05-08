@@ -15,3 +15,8 @@ class LinkedList:
 		while current.next:
 			current = current.next
 		current.next = Node(data)
+
+a_list = LinkedList()
+a_list.append("Tuesday")
+a_list.append("Wednesday")
+print(a_list)
